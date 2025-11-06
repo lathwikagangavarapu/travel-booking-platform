@@ -65,7 +65,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: docker.io/lathwikagangavarapu/travel-booking-backend:latest
+          image: docker.io/lathwika26/travel-booking-backend:latest
           ports:
             - containerPort: 8080
           env:
@@ -98,7 +98,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: docker.io/lathwikagangavarapu/travel-booking-frontend:latest
+          image: docker.io/lathwika26/travel-booking-frontend:latest
           ports:
             - containerPort: 8080
           env:

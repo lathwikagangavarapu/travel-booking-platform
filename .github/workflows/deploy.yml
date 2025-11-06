@@ -28,7 +28,7 @@ jobs:
         context: ./TravelSathi
         file: ./TravelSathi/Dockerfile.backend
         push: true
-        tags: docker.io/lathwikagangavarapu/travel-booking-backend:latest
+        tags: docker.io/lathwika26/travel-booking-backend:latest
 
     - name: Build and push frontend image
       uses: docker/build-push-action@v4
@@ -36,13 +36,4 @@ jobs:
         context: ./travelsathi-frontend
         file: ./travelsathi-frontend/Dockerfile.frontend
         push: true
-        tags: docker.io/lathwikagangavarapu/travel-booking-frontend:latest
-
-    - name: Deploy to Kubernetes
-      uses: azure/k8s-deploy@v1
-      with:
-        manifests: fullstack-deployment.yaml
-        images: |
-          docker.io/lathwikagangavarapu/travel-booking-backend:latest
-          docker.io/lathwikagangavarapu/travel-booking-frontend:latest
-        kubectl-version: latest
+        tags: docker.io/lathwika26/travel-booking-frontend:latest
