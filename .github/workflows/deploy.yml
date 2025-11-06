@@ -26,7 +26,7 @@ jobs:
       with:
         context: ./TravelSathi
         push: true
-        tags: lathwika26/travel-booking-backend:latest
+        tags: lathwikagangavarapu/travel-booking-backend:latest
 
   build-frontend:
     runs-on: ubuntu-latest
@@ -45,7 +45,7 @@ jobs:
       with:
         context: ./travelsathi-frontend
         push: true
-        tags: lathwika26/travel-booking-frontend:latest
+        tags: lathwikagangavarapu/travel-booking-frontend:latest
 
   deploy:
     runs-on: ubuntu-latest
