@@ -25,6 +25,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: ./TravelSathi
+        file: ./TravelSathi/Dockerfile.backend
         push: true
         tags: lathwikagangavarapu/travel-booking-backend:latest
 
@@ -44,6 +45,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: ./travelsathi-frontend
+        file: ./travelsathi-frontend/Dockerfile.frontend
         push: true
         tags: lathwikagangavarapu/travel-booking-frontend:latest
 
