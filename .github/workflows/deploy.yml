@@ -16,12 +16,11 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
-    - name: Log in to GitHub Container Registry
+    - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push backend image
       uses: docker/build-push-action@v4
@@ -29,7 +28,7 @@ jobs:
         context: ./TravelSathi
         file: ./TravelSathi/Dockerfile.backend
         push: true
-        tags: ghcr.io/lathwikagangavarapu/travel-booking-platform/backend:latest
+        tags: docker.io/lathwikagangavarapu/travel-booking-backend:latest
 
     - name: Build and push frontend image
       uses: docker/build-push-action@v4
@@ -37,13 +36,13 @@ jobs:
         context: ./travelsathi-frontend
         file: ./travelsathi-frontend/Dockerfile.frontend
         push: true
-        tags: ghcr.io/lathwikagangavarapu/travel-booking-platform/frontend:latest
+        tags: docker.io/lathwikagangavarapu/travel-booking-frontend:latest
 
     - name: Deploy to Kubernetes
       uses: azure/k8s-deploy@v1
       with:
         manifests: fullstack-deployment.yaml
         images: |
-          ghcr.io/lathwikagangavarapu/travel-booking-platform/backend:latest
-          ghcr.io/lathwikagangavarapu/travel-booking-platform/frontend:latest
+          docker.io/lathwikagangavarapu/travel-booking-backend:latest
+          docker.io/lathwikagangavarapu/travel-booking-frontend:latest
         kubectl-version: latest
