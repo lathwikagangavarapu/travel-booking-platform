@@ -65,7 +65,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: ghcr.io/lathwikagangavarapu/travel-booking-backend:latest
+          image: ghcr.io/lathwikagangavarapu/travel-booking-platform/backend:latest
           ports:
             - containerPort: 8080
           env:
@@ -98,7 +98,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ghcr.io/lathwikagangavarapu/travel-booking-frontend:latest
+          image: ghcr.io/lathwikagangavarapu/travel-booking-platform/frontend:latest
           ports:
             - containerPort: 8080
           env:
